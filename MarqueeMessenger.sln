@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.22823.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EBE226D6-3B00-491A-8FAD-5134F3BEB6CA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4813A969-40C9-48B0-A2C5-817DFC88FDCF}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger", "src\MarqueeMessenger\MarqueeMessenger.xproj", "{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BD2590AB-1DA8-484D-B2C7-37FD5F2569AA}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.Tests", "test\MarqueeMessenger.Tests\MarqueeMessenger.Tests.xproj", "{460E3988-B1AC-442B-8907-DA04B2E55F14}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{460E3988-B1AC-442B-8907-DA04B2E55F14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460E3988-B1AC-442B-8907-DA04B2E55F14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460E3988-B1AC-442B-8907-DA04B2E55F14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460E3988-B1AC-442B-8907-DA04B2E55F14}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9} = {EBE226D6-3B00-491A-8FAD-5134F3BEB6CA}
+		{460E3988-B1AC-442B-8907-DA04B2E55F14} = {BD2590AB-1DA8-484D-B2C7-37FD5F2569AA}
+	EndGlobalSection
+EndGlobal
