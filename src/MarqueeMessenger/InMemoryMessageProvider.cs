@@ -2,7 +2,7 @@
 {
     public class InMemoryMessageProvider : IMessageProvider
     {
-        private object messages;
+        protected object messages { get; set; }
 
         public object Get()
         {
