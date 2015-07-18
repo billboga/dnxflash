@@ -3,11 +3,11 @@ using Xunit;
 
 namespace MarqueeMessenger.Tests
 {
-    public class MarqueeMessageTests
+    public class MarqueeMessageTest
     {
         private MarqueeMessage sut;
 
-        public class Constructor : MarqueeMessageTests
+        public class Constructor : MarqueeMessageTest
         {
             [Fact]
             public void Should_set_message()

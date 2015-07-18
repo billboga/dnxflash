@@ -2,14 +2,14 @@
 
 namespace MarqueeMessenger.Tests
 {
-    public class InMemoryQueueMessengerTests
+    public class QueueMessengerTest
     {
-        public InMemoryQueueMessengerTests()
+        public QueueMessengerTest()
         {
-            sut = new InMemoryQueueMessenger();
+            sut = new QueueMessenger(new InMemoryMessageProvider());
         }
 
-        private readonly InMemoryQueueMessenger sut;
+        private readonly QueueMessenger sut;
 
         [Fact]
         public void Should_add_new_items_on_top_of_previous_item_and_fetch_from_bottom()
