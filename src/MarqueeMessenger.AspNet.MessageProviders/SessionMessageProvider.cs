@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 using System;
 using System.Text;
 
-namespace MarqueeMessenger.AspNet.SessionMessageProvider
+namespace MarqueeMessenger.AspNet.MessageProviders
 {
     public class SessionMessageProvider : IMessageProvider
     {

@@ -16,7 +16,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BD2590AB-1
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.Test", "test\MarqueeMessenger.Test\MarqueeMessenger.Test.xproj", "{460E3988-B1AC-442B-8907-DA04B2E55F14}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.AspNet.SessionMessageProvider", "src\MarqueeMessenger.AspNet.SessionMessageProvider\MarqueeMessenger.AspNet.SessionMessageProvider.xproj", "{A5E7EA5F-94D2-49B9-8C83-8755A7E861F3}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.AspNet.MessageProviders", "src\MarqueeMessenger.AspNet.MessageProviders\MarqueeMessenger.AspNet.MessageProviders.xproj", "{A5E7EA5F-94D2-49B9-8C83-8755A7E861F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
