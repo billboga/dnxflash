@@ -4,9 +4,9 @@
     {
         protected object messages { get; set; }
 
-        public T Get<T>()
+        public object Get()
         {
-            return (T)messages;
+            return messages;
         }
 
         public void Set(object messages)

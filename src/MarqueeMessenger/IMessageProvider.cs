@@ -2,7 +2,7 @@
 {
     public interface IMessageProvider
     {
-        T Get<T>();
+        object Get();
         void Set(object messages);
     }
 }

@@ -21,7 +21,7 @@ namespace MarqueeMessenger.Tests
             {
                 (sut as TestInMemoryMessageProvider).SetItem(item);
 
-                var messages = sut.Get<object>();
+                var messages = sut.Get();
 
                 if (item != null)
                 {

@@ -16,17 +16,17 @@ namespace MarqueeMessenger.AspNet.MessageProviders
         private readonly ISession session;
         private const string sessionKey = "marquee-messenger-session-message-provider";
 
-        public T Get<T>()
+        public object Get()
         {
             byte[] value;
-            T messages = default(T);
+            object messages = null;
 
             if (session.TryGetValue(sessionKey, out value))
             {
                 if (value != null)
                 {
                     messages =
-                        JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(value));
+                        JsonConvert.DeserializeObject(Encoding.UTF8.GetString(value));
                 }
             }
 

@@ -13,7 +13,7 @@ namespace MarqueeMessenger
 
         public IMessenger Add(MarqueeMessage message)
         {
-            var messages = messageProvider.Get<Stack<MarqueeMessage>>()
+            var messages = messageProvider.Get() as Stack<MarqueeMessage>
                 ?? new Stack<MarqueeMessage>();
 
             messages.Push(message);
@@ -24,7 +24,7 @@ namespace MarqueeMessenger
 
         public MarqueeMessage Fetch()
         {
-            var messages = messageProvider.Get<Stack<MarqueeMessage>>()
+            var messages = messageProvider.Get() as Stack<MarqueeMessage>
                 ?? new Stack<MarqueeMessage>();
 
             MarqueeMessage message = null;
