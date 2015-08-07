@@ -2,30 +2,31 @@
 using Newtonsoft.Json;
 using System;
 using System.Text;
+using Microsoft.AspNet.Http.Features;
 
 namespace MarqueeMessenger.AspNet.MessageProviders
 {
     public class SessionMessageProvider : IMessageProvider
     {
-        public SessionMessageProvider(ISessionCollection session)
+        public SessionMessageProvider(ISession session)
         {
             this.session = session;
         }
 
-        private readonly ISessionCollection session;
+        private readonly ISession session;
         private const string sessionKey = "marquee-messenger-session-message-provider";
 
-        public object Get()
+        public T Get<T>()
         {
             byte[] value;
-            object messages = null;
+            T messages = default(T);
 
             if (session.TryGetValue(sessionKey, out value))
             {
                 if (value != null)
                 {
                     messages =
-                        JsonConvert.DeserializeObject(Encoding.UTF8.GetString(value));
+                        JsonConvert.DeserializeObject<T>(Encoding.UTF8.GetString(value));
                 }
             }
 
@@ -36,7 +37,7 @@ namespace MarqueeMessenger.AspNet.MessageProviders
         {
             session.Set(
                 sessionKey,
-                new ArraySegment<byte>(Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messages))));
+                Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messages)));
         }
     }
 }

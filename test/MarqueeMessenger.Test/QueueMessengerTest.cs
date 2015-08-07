@@ -27,5 +27,16 @@ namespace MarqueeMessenger.Tests
             Assert.Equal("first", expectedTop.Message);
             Assert.Equal("second", expectedBottom.Message);
         }
+
+        public class Fetch : QueueMessengerTest
+        {
+            [Fact]
+            public void Should_return_null_if_no_messages_left()
+            {
+                var expected = sut.Fetch();
+
+                Assert.Null(expected);
+            }
+        }
     }
 }

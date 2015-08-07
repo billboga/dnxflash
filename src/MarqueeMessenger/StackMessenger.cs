@@ -13,7 +13,7 @@ namespace MarqueeMessenger
 
         public IMessenger Add(MarqueeMessage message)
         {
-            var messages = (messageProvider.Get() as Stack<MarqueeMessage>)
+            var messages = messageProvider.Get<Stack<MarqueeMessage>>()
                 ?? new Stack<MarqueeMessage>();
 
             messages.Push(message);
@@ -24,11 +24,16 @@ namespace MarqueeMessenger
 
         public MarqueeMessage Fetch()
         {
-            var messages = (messageProvider.Get() as Stack<MarqueeMessage>)
+            var messages = messageProvider.Get<Stack<MarqueeMessage>>()
                 ?? new Stack<MarqueeMessage>();
 
-            var message = messages.Pop();
-            messageProvider.Set(messages);
+            MarqueeMessage message = null;
+
+            if (messages.Count > 0)
+            {
+                message = messages.Pop();
+                messageProvider.Set(messages);
+            }
 
             return message;
         }
