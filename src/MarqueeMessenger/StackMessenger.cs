@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MarqueeMessenger
 {
@@ -13,8 +15,12 @@ namespace MarqueeMessenger
 
         public IMessenger Add(MarqueeMessage message)
         {
-            var messages = messageProvider.Get() as Stack<MarqueeMessage>
+            message.MessengerOrderId = DateTimeOffset.UtcNow.UtcTicks;
+
+            var providerMessages = messageProvider.Get() as Stack<MarqueeMessage>
                 ?? new Stack<MarqueeMessage>();
+
+            var messages = SetMessageOrder(providerMessages);
 
             messages.Push(message);
             messageProvider.Set(messages);
@@ -24,8 +30,10 @@ namespace MarqueeMessenger
 
         public MarqueeMessage Fetch()
         {
-            var messages = messageProvider.Get() as Stack<MarqueeMessage>
+            var providerMessages = messageProvider.Get() as Stack<MarqueeMessage>
                 ?? new Stack<MarqueeMessage>();
+
+            var messages = SetMessageOrder(providerMessages);
 
             MarqueeMessage message = null;
 
@@ -36,6 +44,14 @@ namespace MarqueeMessenger
             }
 
             return message;
+        }
+
+        private Stack<MarqueeMessage> SetMessageOrder(IEnumerable<MarqueeMessage> unorderedMessages)
+        {
+            var messages = new Stack<MarqueeMessage>(
+                unorderedMessages.OrderBy(x => x.MessengerOrderId));
+
+            return messages;
         }
     }
 }

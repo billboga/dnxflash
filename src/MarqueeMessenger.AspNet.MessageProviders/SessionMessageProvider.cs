@@ -1,8 +1,6 @@
-﻿using Microsoft.AspNet.Http;
+﻿using Microsoft.AspNet.Http.Features;
 using Newtonsoft.Json;
-using System;
 using System.Text;
-using Microsoft.AspNet.Http.Features;
 
 namespace MarqueeMessenger.AspNet.MessageProviders
 {
@@ -12,6 +10,11 @@ namespace MarqueeMessenger.AspNet.MessageProviders
         {
             this.session = session;
         }
+
+        private static JsonSerializerSettings jsonSerializerSettings = new JsonSerializerSettings()
+        {
+            TypeNameHandling = TypeNameHandling.All
+        };
 
         private readonly ISession session;
         private const string sessionKey = "marquee-messenger-session-message-provider";
@@ -26,7 +29,9 @@ namespace MarqueeMessenger.AspNet.MessageProviders
                 if (value != null)
                 {
                     messages =
-                        JsonConvert.DeserializeObject(Encoding.UTF8.GetString(value));
+                        JsonConvert.DeserializeObject(
+                            Encoding.UTF8.GetString(value),
+                            jsonSerializerSettings);
                 }
             }
 
@@ -37,7 +42,9 @@ namespace MarqueeMessenger.AspNet.MessageProviders
         {
             session.Set(
                 sessionKey,
-                Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(messages)));
+                Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(
+                    messages,
+                    jsonSerializerSettings)));
         }
     }
 }
