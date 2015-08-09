@@ -6,7 +6,9 @@ namespace MarqueeMessenger.Tests
     {
         public QueueMessengerTest()
         {
-            sut = new QueueMessenger(new InMemoryMessageProvider());
+            sut = new QueueMessenger(
+                new InMemoryMessageProvider(),
+                new MessengerOptions(new MessageTypes()));
         }
 
         private readonly QueueMessenger sut;

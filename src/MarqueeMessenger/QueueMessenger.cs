@@ -6,12 +6,17 @@ namespace MarqueeMessenger
 {
     public class QueueMessenger : IMessenger
     {
-        public QueueMessenger(IMessageProvider messageProvider)
+        public QueueMessenger(
+            IMessageProvider messageProvider,
+            IMessengerOptions messengerOptions)
         {
             this.messageProvider = messageProvider;
+
+            Options = messengerOptions;
         }
 
         private readonly IMessageProvider messageProvider;
+        public IMessengerOptions Options { get; }
 
         public IMessenger Add(MarqueeMessage message)
         {

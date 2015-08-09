@@ -6,7 +6,9 @@ namespace MarqueeMessenger.Tests
     {
         public StackMessengerTest()
         {
-            sut = new StackMessenger(new InMemoryMessageProvider());
+            sut = new StackMessenger(
+                new InMemoryMessageProvider(),
+                new MessengerOptions(new MessageTypes()));
         }
 
         private readonly StackMessenger sut;
