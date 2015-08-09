@@ -18,12 +18,12 @@ namespace MarqueeMessenger
         private readonly IMessageProvider messageProvider;
         public IMessengerOptions Options { get; }
 
-        public IMessenger Add(MarqueeMessage message)
+        public IMessenger Add(Message message)
         {
             message.MessengerOrderId = DateTimeOffset.UtcNow.UtcTicks;
 
-            var providerMessages = messageProvider.Get() as Queue<MarqueeMessage>
-                ?? new Queue<MarqueeMessage>();
+            var providerMessages = messageProvider.Get() as Queue<Message>
+                ?? new Queue<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
@@ -33,14 +33,14 @@ namespace MarqueeMessenger
             return this;
         }
 
-        public MarqueeMessage Fetch()
+        public Message Fetch()
         {
-            var providerMessages = messageProvider.Get() as Queue<MarqueeMessage>
-                ?? new Queue<MarqueeMessage>();
+            var providerMessages = messageProvider.Get() as Queue<Message>
+                ?? new Queue<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
-            MarqueeMessage message = null;
+            Message message = null;
 
             if (messages.Count > 0)
             {
@@ -51,9 +51,9 @@ namespace MarqueeMessenger
             return message;
         }
 
-        private Queue<MarqueeMessage> SetMessageOrder(IEnumerable<MarqueeMessage> unorderedMessages)
+        private Queue<Message> SetMessageOrder(IEnumerable<Message> unorderedMessages)
         {
-            var messages = new Queue<MarqueeMessage>(
+            var messages = new Queue<Message>(
                 unorderedMessages.OrderBy(x => x.MessengerOrderId));
 
             return messages;

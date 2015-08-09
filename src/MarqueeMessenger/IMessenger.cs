@@ -4,7 +4,7 @@
     {
         IMessengerOptions Options { get; }
 
-        IMessenger Add(MarqueeMessage message);
-        MarqueeMessage Fetch();
+        IMessenger Add(Message message);
+        Message Fetch();
     }
 }

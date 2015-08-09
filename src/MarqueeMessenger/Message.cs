@@ -2,24 +2,24 @@
 
 namespace MarqueeMessenger
 {
-    public class MarqueeMessage
+    public class Message
     {
-        public MarqueeMessage(
-            string message,
+        public Message(
+            string text,
             string title = null,
             string type = null)
         {
-            if (string.IsNullOrEmpty(message))
+            if (string.IsNullOrEmpty(text))
             {
-                throw new ArgumentNullException(nameof(message));
+                throw new ArgumentNullException(nameof(text));
             }
 
-            Message = message;
+            Text = text;
             Title = title;
             Type = type;
         }
 
-        public string Message { get; private set; }
+        public string Text { get; private set; }
 
         /// <summary>
         /// This property is intended to allow `IMessenger` implementations

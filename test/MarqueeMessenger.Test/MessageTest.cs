@@ -3,18 +3,18 @@ using Xunit;
 
 namespace MarqueeMessenger.Tests
 {
-    public class MarqueeMessageTest
+    public class MessageTest
     {
-        private MarqueeMessage sut;
+        private Message sut;
 
-        public class Constructor : MarqueeMessageTest
+        public class Constructor : MessageTest
         {
             [Fact]
             public void Should_set_message()
             {
-                sut = new MarqueeMessage("test message");
+                sut = new Message("test message");
 
-                Assert.Equal("test message", sut.Message);
+                Assert.Equal("test message", sut.Text);
             }
 
             [Theory,
@@ -22,7 +22,7 @@ namespace MarqueeMessenger.Tests
                 InlineData("")]
             public void Should_throw_exception_if_message_is_not_valid(string message)
             {
-                var exception = Assert.Throws<ArgumentNullException>(() => new MarqueeMessage(message));
+                var exception = Assert.Throws<ArgumentNullException>(() => new Message(message));
 
                 Assert.Equal("message", exception.ParamName);
             }
@@ -30,8 +30,8 @@ namespace MarqueeMessenger.Tests
             [Fact]
             public void Should_set_title()
             {
-                sut = new MarqueeMessage(
-                    message: "test message",
+                sut = new Message(
+                    text: "test message",
                     title: "test");
 
                 Assert.Equal("test", sut.Title);
@@ -40,8 +40,8 @@ namespace MarqueeMessenger.Tests
             [Fact]
             public void Should_set_type()
             {
-                sut = new MarqueeMessage(
-                    message: "test message",
+                sut = new Message(
+                    text: "test message",
                     type: "test");
 
                 Assert.Equal("test", sut.Type);

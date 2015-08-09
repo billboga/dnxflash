@@ -17,8 +17,8 @@ namespace MarqueeMessenger.Tests
         public void Should_add_new_items_on_top_of_previous_item_and_fetch_from_top()
         {
             sut
-                .Add(new MarqueeMessage("first"))
-                .Add(new MarqueeMessage("second"));
+                .Add(new Message("first"))
+                .Add(new Message("second"));
 
             var expectedTop = sut.Fetch();
             var expectedBottom = sut.Fetch();
@@ -26,8 +26,8 @@ namespace MarqueeMessenger.Tests
             Assert.NotNull(expectedTop);
             Assert.NotNull(expectedBottom);
 
-            Assert.Equal("second", expectedTop.Message);
-            Assert.Equal("first", expectedBottom.Message);
+            Assert.Equal("second", expectedTop.Text);
+            Assert.Equal("first", expectedBottom.Text);
         }
 
         public class Fetch : StackMessengerTest
