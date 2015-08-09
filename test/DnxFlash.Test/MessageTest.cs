@@ -20,11 +20,11 @@ namespace DnxFlash.Test
             [Theory,
                 InlineData(null),
                 InlineData("")]
-            public void Should_throw_exception_if_message_is_not_valid(string message)
+            public void Should_throw_exception_if_message_is_not_valid(string text)
             {
-                var exception = Assert.Throws<ArgumentNullException>(() => new Message(message));
+                var exception = Assert.Throws<ArgumentNullException>(() => new Message(text));
 
-                Assert.Equal("message", exception.ParamName);
+                Assert.Equal("text", exception.ParamName);
             }
 
             [Fact]
