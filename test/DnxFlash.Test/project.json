@@ -9,7 +9,7 @@
     "dependencies": {
         "xunit.runner.dnx": "2.1.0-beta3-build99",
         "xunit": "2.1.0-beta3-build3029",
-        "MarqueeMessenger": "1.0.0-*",
+        "DnxFlash": "1.0.0-*",
         "Moq": "4.2.1507.118"
     },
 

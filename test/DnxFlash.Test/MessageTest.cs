@@ -1,7 +1,7 @@
 ﻿using System;
 using Xunit;
 
-namespace MarqueeMessenger.Tests
+namespace DnxFlash.Test
 {
     public class MessageTest
     {

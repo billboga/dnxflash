@@ -1,4 +1,4 @@
-﻿namespace MarqueeMessenger
+﻿namespace DnxFlash
 {
     public interface IMessenger
     {

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.22823.1
+VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{EBE226D6-3B00-491A-8FAD-5134F3BEB6CA}"
 EndProject
@@ -10,13 +10,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		global.json = global.json
 	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger", "src\MarqueeMessenger\MarqueeMessenger.xproj", "{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{BD2590AB-1DA8-484D-B2C7-37FD5F2569AA}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.Test", "test\MarqueeMessenger.Test\MarqueeMessenger.Test.xproj", "{460E3988-B1AC-442B-8907-DA04B2E55F14}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DnxFlash", "src\DnxFlash\DnxFlash.xproj", "{98BF7BED-98AD-46D2-81C3-FA6F9B5545B9}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "MarqueeMessenger.AspNet.MessageProviders", "src\MarqueeMessenger.AspNet.MessageProviders\MarqueeMessenger.AspNet.MessageProviders.xproj", "{A5E7EA5F-94D2-49B9-8C83-8755A7E861F3}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DnxFlash.Test", "test\DnxFlash.Test\DnxFlash.Test.xproj", "{460E3988-B1AC-442B-8907-DA04B2E55F14}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DnxFlash.AspNet.MessageProviders", "src\DnxFlash.AspNet.MessageProviders\DnxFlash.AspNet.MessageProviders.xproj", "{A5E7EA5F-94D2-49B9-8C83-8755A7E861F3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

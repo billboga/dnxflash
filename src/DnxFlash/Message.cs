@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MarqueeMessenger
+namespace DnxFlash
 {
     public class Message
     {

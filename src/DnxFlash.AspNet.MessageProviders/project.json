@@ -7,7 +7,7 @@
   "licenseUrl": "",
 
   "dependencies": {
-    "MarqueeMessenger": "1.0.0-*",
+    "DnxFlash": "1.0.0-*",
     "Newtonsoft.Json": "7.0.1",
     "Microsoft.AspNet.Http.Features": "1.0.0-beta6"
   },

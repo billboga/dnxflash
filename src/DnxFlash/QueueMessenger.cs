@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MarqueeMessenger
+namespace DnxFlash
 {
-    public class StackMessenger : IMessenger
+    public class QueueMessenger : IMessenger
     {
-        public StackMessenger(
+        public QueueMessenger(
             IMessageProvider messageProvider,
             IMessengerOptions messengerOptions)
         {
@@ -22,12 +22,12 @@ namespace MarqueeMessenger
         {
             message.MessengerOrderId = DateTimeOffset.UtcNow.UtcTicks;
 
-            var providerMessages = messageProvider.Get() as Stack<Message>
-                ?? new Stack<Message>();
+            var providerMessages = messageProvider.Get() as Queue<Message>
+                ?? new Queue<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
-            messages.Push(message);
+            messages.Enqueue(message);
             messageProvider.Set(messages);
 
             return this;
@@ -35,8 +35,8 @@ namespace MarqueeMessenger
 
         public Message Fetch()
         {
-            var providerMessages = messageProvider.Get() as Stack<Message>
-                ?? new Stack<Message>();
+            var providerMessages = messageProvider.Get() as Queue<Message>
+                ?? new Queue<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
@@ -44,19 +44,20 @@ namespace MarqueeMessenger
 
             if (messages.Count > 0)
             {
-                message = messages.Pop();
+                message = messages.Dequeue();
                 messageProvider.Set(messages);
             }
 
             return message;
         }
 
-        private Stack<Message> SetMessageOrder(IEnumerable<Message> unorderedMessages)
+        private Queue<Message> SetMessageOrder(IEnumerable<Message> unorderedMessages)
         {
-            var messages = new Stack<Message>(
+            var messages = new Queue<Message>(
                 unorderedMessages.OrderBy(x => x.MessengerOrderId));
 
             return messages;
         }
+
     }
 }
