@@ -17,7 +17,7 @@ namespace DnxFlash.AspNet.MessageProviders
         };
 
         private readonly ISession session;
-        private const string sessionKey = "marquee-messenger-session-message-provider";
+        private const string sessionKey = "dnxflash-session-message-provider";
 
         public object Get()
         {
