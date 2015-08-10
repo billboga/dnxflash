@@ -2,7 +2,7 @@
 using Newtonsoft.Json;
 using System.Text;
 
-namespace MarqueeMessenger.AspNet.MessageProviders
+namespace DnxFlash.AspNet.MessageProviders
 {
     public class SessionMessageProvider : IMessageProvider
     {

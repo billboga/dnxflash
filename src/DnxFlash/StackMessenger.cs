@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MarqueeMessenger
+namespace DnxFlash
 {
-    public class QueueMessenger : IMessenger
+    public class StackMessenger : IMessenger
     {
-        public QueueMessenger(
+        public StackMessenger(
             IMessageProvider messageProvider,
             IMessengerOptions messengerOptions)
         {
@@ -18,46 +18,45 @@ namespace MarqueeMessenger
         private readonly IMessageProvider messageProvider;
         public IMessengerOptions Options { get; }
 
-        public IMessenger Add(MarqueeMessage message)
+        public IMessenger Add(Message message)
         {
             message.MessengerOrderId = DateTimeOffset.UtcNow.UtcTicks;
 
-            var providerMessages = messageProvider.Get() as Queue<MarqueeMessage>
-                ?? new Queue<MarqueeMessage>();
+            var providerMessages = messageProvider.Get() as Stack<Message>
+                ?? new Stack<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
-            messages.Enqueue(message);
+            messages.Push(message);
             messageProvider.Set(messages);
 
             return this;
         }
 
-        public MarqueeMessage Fetch()
+        public Message Fetch()
         {
-            var providerMessages = messageProvider.Get() as Queue<MarqueeMessage>
-                ?? new Queue<MarqueeMessage>();
+            var providerMessages = messageProvider.Get() as Stack<Message>
+                ?? new Stack<Message>();
 
             var messages = SetMessageOrder(providerMessages);
 
-            MarqueeMessage message = null;
+            Message message = null;
 
             if (messages.Count > 0)
             {
-                message = messages.Dequeue();
+                message = messages.Pop();
                 messageProvider.Set(messages);
             }
 
             return message;
         }
 
-        private Queue<MarqueeMessage> SetMessageOrder(IEnumerable<MarqueeMessage> unorderedMessages)
+        private Stack<Message> SetMessageOrder(IEnumerable<Message> unorderedMessages)
         {
-            var messages = new Queue<MarqueeMessage>(
+            var messages = new Stack<Message>(
                 unorderedMessages.OrderBy(x => x.MessengerOrderId));
 
             return messages;
         }
-
     }
 }

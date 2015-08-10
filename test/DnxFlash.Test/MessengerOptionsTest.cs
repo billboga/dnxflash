@@ -1,6 +1,6 @@
 ﻿using Xunit;
 
-namespace MarqueeMessenger.Tests
+namespace DnxFlash.Test
 {
     public class MessengerOptionsTest
     {

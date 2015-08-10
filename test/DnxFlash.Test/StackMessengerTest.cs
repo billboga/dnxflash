@@ -1,24 +1,24 @@
 ﻿using Xunit;
 
-namespace MarqueeMessenger.Tests
+namespace DnxFlash.Test
 {
-    public class QueueMessengerTest
+    public class StackMessengerTest
     {
-        public QueueMessengerTest()
+        public StackMessengerTest()
         {
-            sut = new QueueMessenger(
+            sut = new StackMessenger(
                 new InMemoryMessageProvider(),
                 new MessengerOptions(new MessageTypes()));
         }
 
-        private readonly QueueMessenger sut;
+        private readonly StackMessenger sut;
 
         [Fact]
-        public void Should_add_new_items_on_top_of_previous_item_and_fetch_from_bottom()
+        public void Should_add_new_items_on_top_of_previous_item_and_fetch_from_top()
         {
             sut
-                .Add(new MarqueeMessage("first"))
-                .Add(new MarqueeMessage("second"));
+                .Add(new Message("first"))
+                .Add(new Message("second"));
 
             var expectedTop = sut.Fetch();
             var expectedBottom = sut.Fetch();
@@ -26,11 +26,11 @@ namespace MarqueeMessenger.Tests
             Assert.NotNull(expectedTop);
             Assert.NotNull(expectedBottom);
 
-            Assert.Equal("first", expectedTop.Message);
-            Assert.Equal("second", expectedBottom.Message);
+            Assert.Equal("second", expectedTop.Text);
+            Assert.Equal("first", expectedBottom.Text);
         }
 
-        public class Fetch : QueueMessengerTest
+        public class Fetch : StackMessengerTest
         {
             [Fact]
             public void Should_return_null_if_no_messages_left()
