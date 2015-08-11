@@ -1,0 +1,15 @@
+@model IEnumerable<DnxFlash.Message>
+
+@foreach (var message in Model)
+{
+    <div>
+        <div>
+            <strong>@message.Title</strong>
+        </div>
+        <div>
+            <blockquote>
+                @message.Text
+            </blockquote>
+        </div>
+    </div>
+}

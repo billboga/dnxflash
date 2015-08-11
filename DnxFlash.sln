@@ -20,6 +20,10 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DnxFlash.AspNet.MessageProv
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DnxFlash.AspNet.Razor.ViewHelpers", "src\DnxFlash.AspNet.Razor.ViewHelpers\DnxFlash.AspNet.Razor.ViewHelpers.xproj", "{627C1905-5231-4476-A909-05655DD0AC9E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sample", "sample", "{1E0888A6-82E2-42A4-A6E0-D110B73DD075}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "AspNet.Mvc", "sample\AspNet.Mvc\AspNet.Mvc.xproj", "{E02463D9-5867-4637-8D1D-19B0E6E3EEEB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,6 +46,10 @@ Global
 		{627C1905-5231-4476-A909-05655DD0AC9E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{627C1905-5231-4476-A909-05655DD0AC9E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{627C1905-5231-4476-A909-05655DD0AC9E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E02463D9-5867-4637-8D1D-19B0E6E3EEEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E02463D9-5867-4637-8D1D-19B0E6E3EEEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E02463D9-5867-4637-8D1D-19B0E6E3EEEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E02463D9-5867-4637-8D1D-19B0E6E3EEEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -51,5 +59,6 @@ Global
 		{460E3988-B1AC-442B-8907-DA04B2E55F14} = {BD2590AB-1DA8-484D-B2C7-37FD5F2569AA}
 		{A5E7EA5F-94D2-49B9-8C83-8755A7E861F3} = {EBE226D6-3B00-491A-8FAD-5134F3BEB6CA}
 		{627C1905-5231-4476-A909-05655DD0AC9E} = {EBE226D6-3B00-491A-8FAD-5134F3BEB6CA}
+		{E02463D9-5867-4637-8D1D-19B0E6E3EEEB} = {1E0888A6-82E2-42A4-A6E0-D110B73DD075}
 	EndGlobalSection
 EndGlobal
