@@ -8,7 +8,7 @@ DNXFlash follows a design-principle known as "flash messaging". This allows the 
 
 ## What is the use case?
 
-A common MVC-pattern is to `post` a `form` to an endpoint, process the data, then redirect the request to another endpoint via a `get`-request (i.e. Post-Redirect-Get). Using DNXFlash, a message can be created within the `post`-action and retained until it is consumed by the latter `get`-request.
+A common MVC-pattern is to `post` a `form` to an endpoint, process the data, then redirect the request to another endpoint via a `get`-request (i.e. [Post-Redirect-Get](https://en.wikipedia.org/wiki/Post/Redirect/Get)). Using DNXFlash, a message can be created within the `post`-action and retained until it is consumed by the latter `get`-request.
 
 Another example is to create a series of messages (maybe just information or log-related) during an action and then displaying them based on some ordering (FIFO or LIFO).
 
