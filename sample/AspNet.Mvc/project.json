@@ -16,10 +16,10 @@
     "Microsoft.VisualStudio.Web.BrowserLink.Loader": "14.0.0-beta6",
     "Microsoft.Framework.Configuration.Json": "1.0.0-beta6",
     "Microsoft.AspNet.Session": "1.0.0-beta6",
-    "DnxFlash": "1.0.0-*",
-    "DnxFlash.AspNet.MessageProviders": "1.0.0-*",
+    "DnxFlash": "0.1.0-*",
+    "DnxFlash.AspNet.MessageProviders": "0.1.0-*",
     "Microsoft.AspNet.Http.Features": "1.0.0-beta6",
-    "DnxFlash.AspNet.Razor.ViewHelpers": "1.0.0-*"
+    "DnxFlash.AspNet.Razor.ViewHelpers": "0.1.0-*"
   },
 
   "commands": {

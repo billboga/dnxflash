@@ -1,10 +1,10 @@
 ﻿{
-  "version": "1.0.0-*",
-  "description": "",
-  "authors": [ "" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "version": "0.1.0-*",
+  "description": "Leverages DNXFlash and contains useful view helpers for Razor.",
+  "authors": [ "Bill Boga" ],
+  "tags": [ "dnx aspnet flash razor" ],
+  "projectUrl": "https://github.com/billboga/dnxflash/",
+  "licenseUrl": "https://raw.githubusercontent.com/billboga/dnxflash/master/LICENSE",
 
   "dependencies": {
     "System.Collections": "4.0.10-beta-23019",
@@ -14,7 +14,7 @@
     "Microsoft.CSharp": "4.0.0-beta-23019",
     "Microsoft.AspNet.Mvc": "6.0.0-beta6",
     "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-beta6",
-    "DnxFlash": "1.0.0-*"
+    "DnxFlash": "0.1.0-*"
   },
 
   "frameworks": {

@@ -1,10 +1,10 @@
 ﻿{
-  "version": "1.0.0-*",
-  "description": "",
-  "authors": [ "" ],
-  "tags": [ "" ],
-  "projectUrl": "",
-  "licenseUrl": "",
+  "version": "0.1.0-*",
+  "description": "Provides a foundation for managing flash messages.",
+  "authors": [ "Bill Boga" ],
+  "tags": [ "dnx flash" ],
+  "projectUrl": "https://github.com/billboga/dnxflash/",
+  "licenseUrl": "https://raw.githubusercontent.com/billboga/dnxflash/master/LICENSE",
 
   "dependencies": {
   },
