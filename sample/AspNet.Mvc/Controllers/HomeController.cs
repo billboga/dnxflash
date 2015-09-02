@@ -1,4 +1,5 @@
 ﻿using DnxFlash;
+using DnxFlash.Extensions;
 using Microsoft.AspNet.Mvc;
 using System;
 
@@ -17,9 +18,13 @@ namespace AspNet.Mvc.Controllers
         {
             if (throwException)
             {
-                messenger.Add(new Message(
+                //messenger.Add(new Message(
+                //    text: $"Application exception occured @ {DateTimeOffset.UtcNow}.",
+                //    title: "Error"));
+
+                messenger.Error(
                     text: $"Application exception occured @ {DateTimeOffset.UtcNow}.",
-                    title: "Error"));
+                    title: "Error");
 
                 throw new ApplicationException("A message has been created. Go back to the previous page and refresh to see the message.");
             }
@@ -29,9 +34,13 @@ namespace AspNet.Mvc.Controllers
 
         public IActionResult Post()
         {
-            messenger.Add(new Message(
+            //messenger.Add(new Message(
+            //    text: $"Form posted @ {DateTimeOffset.UtcNow}. Going to redirect.",
+            //    title: "Form post successful"));
+
+            messenger.Success(
                 text: $"Form posted @ {DateTimeOffset.UtcNow}. Going to redirect.",
-                title: "Form post successful"));
+                title: "Form post successful");
 
             return RedirectToAction("Index");
         }

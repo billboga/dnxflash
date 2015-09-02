@@ -46,7 +46,7 @@ namespace AspNet.Mvc
 
             services.AddScoped<IMessageTypes>(x =>
             {
-                return new MessageTypes();
+                return new MessageTypes(error: "danger");
             });
 
             services.AddScoped<IMessengerOptions>(x =>
