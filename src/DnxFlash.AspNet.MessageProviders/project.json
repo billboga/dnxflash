@@ -1,13 +1,13 @@
 {
-    "version": "1.0.0-*",
-    "description": "",
-    "authors": [ "" ],
-    "tags": [ "" ],
-    "projectUrl": "",
-    "licenseUrl": "",
+    "version": "0.1.0-*",
+    "description": "Leverages DNXFlash and contains useful message providers for AspNet.",
+    "authors": [ "Bill Boga" ],
+    "tags": [ "dnx aspnet mvc" ],
+    "projectUrl": "https://github.com/billboga/dnxflash/",
+    "licenseUrl": "https://raw.githubusercontent.com/billboga/dnxflash/master/LICENSE",
 
     "dependencies": {
-        "DnxFlash": "1.0.0-*",
+        "DnxFlash": "0.1.0-*",
         "Microsoft.AspNet.Http.Features": "1.0.0-beta7",
         "Newtonsoft.Json": "7.0.1"
     },
