@@ -1,5 +1,5 @@
 ﻿{
-    "version": "0.1.0-*",
+    "version": "0.2.0-*",
     "description": "Provides a foundation for managing flash messages.",
     "authors": [ "Bill Boga" ],
     "tags": [ "dnx flash" ],
@@ -15,7 +15,7 @@
             "dependencies": {
                 "System.Collections": "4.0.11-beta-23225",
                 "System.Linq": "4.0.1-beta-23225",
-                "System.Threading": "4.0.10-beta-23109",
+                "System.Threading": "4.0.10",
                 "Microsoft.CSharp": "4.0.0-beta-23109",
                 "System.Runtime": "4.0.21-beta-23225",
                 "System.Linq.Expressions": "4.0.10-beta-23109"
