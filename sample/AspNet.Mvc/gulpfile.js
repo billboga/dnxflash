@@ -27,7 +27,7 @@ gulp.task("copy", ["clean"], function () {
   }
 
   var linkedFiles = {
-      "Views/Shared/Components/DnxFlash/": "../../src/DnxFlash.AspNet.Razor.ViewHelpers/Views/Shared/Components/DnxFlash/Default.cshtml"
+      "Views/Shared/Components/DnxFlash/": "../../src/DnxFlash.AspNet.Razor.ViewHelpers/Views/Shared/Components/DnxFlash/*.cshtml"
   };
 
   for (var linkedFile in linkedFiles) {
