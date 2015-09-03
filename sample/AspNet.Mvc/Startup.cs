@@ -1,14 +1,12 @@
 ﻿using DnxFlash;
 using DnxFlash.AspNet.MessageProviders;
 using Microsoft.AspNet.Builder;
-using Microsoft.AspNet.Diagnostics;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
-using Microsoft.AspNet.Http.Features;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.DependencyInjection;
 using Microsoft.Framework.Logging;
-using Microsoft.Framework.Runtime;
+using Microsoft.Dnx.Runtime;
 
 namespace AspNet.Mvc
 {
@@ -29,7 +27,7 @@ namespace AspNet.Mvc
         // This method gets called by the runtime.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<AppSettings>(Configuration.GetConfigurationSection("AppSettings"));
+            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
 
             // Add MVC services to the services container.
             services.AddMvc();
