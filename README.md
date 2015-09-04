@@ -1,5 +1,7 @@
 # DNXFlash
 
+*compatible with dnx beta7*
+
 Provides a way to queue and display UI-messages between actions (i.e. POST -> GET) leveraging the DNX environment.
 
 ## How does it work?
