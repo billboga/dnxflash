@@ -20,4 +20,116 @@ Lastly, since the library is not tied to web applications, it could also be used
 
 ## Examples
 
-TODO
+### MVC6
+
+#### Startup.cs
+
+```csharp
+using DnxFlash;
+using DnxFlash.AspNet.MessageProviders;
+
+// Boilerplate...
+
+public void ConfigureServices(IServiceCollection services)
+{
+    // These two lines are needed if you want to use the `SessionMessageProvider`.
+    services.AddCaching();
+    services.AddSession();
+
+    services.AddScoped<IMessageProvider>(x =>
+    {
+        return new SessionMessageProvider(x.GetService<IHttpContextAccessor>().HttpContext.Session);
+    });
+
+    // We are using Bootstrap v3 and need to provide a custom-value for the error message-type.
+    services.AddScoped<IMessageTypes>(x =>
+    {
+        return new MessageTypes(error: "danger");
+    });
+
+    services.AddScoped<IMessengerOptions>(x =>
+    {
+        return new MessengerOptions(x.GetService<IMessageTypes>());
+    });
+
+    // We are using a stack to hold messages (i.e. LIFO).
+    services.AddScoped<IMessenger>(x =>
+    {
+        return new StackMessenger(
+            x.GetService<IMessageProvider>(),
+            x.GetService<IMessengerOptions>());
+    });
+}
+```
+
+#### HomeController.cs
+
+```csharp
+using DnxFlash;
+using DnxFlash.Extensions;
+
+// Boilerplate...
+
+public class HomeController : Controller
+{
+    public HomeController(IMessenger messenger)
+    {
+        this.messenger = messenger;
+    }
+
+    private readonly IMessenger messenger;
+
+    public IActionResult Index()
+    {
+        // Leveraging extension method.
+        messenger.Success(
+            text: $"Hello at {DateTimeOffset.UtcNow}.",
+            title: "Welcome to DNXFlash");
+
+        // Or, if you want to construct the message manually.
+        //messenger.Add(new Message(
+        //    text: $"Hello at {DateTimeOffset.UtcNow}.",
+        //    title: "Welcome to DNXFlash"));
+
+        return View();
+    }
+}
+```
+
+#### Views/Shared/Components/DnxFlash/Default.cshtml
+
+```csharp
+@model IEnumerable<DnxFlash.Message>
+
+@foreach (var message in Model)
+{
+    <div class="alert alert-@message.Type.ToLower()" role="alert">
+        @if (!string.IsNullOrWhiteSpace(message.Title))
+        {
+            <strong>@message.Title</strong><text>&nbsp;</text>
+        }
+        @message.Text
+    </div>
+}
+```
+
+#### _ViewImports.cshtml
+
+```csharp
+@using DnxFlash.AspNet.Razor.ViewHelpers
+@using DnxFlash.AspNet.Razor.ViewHelpers.Extensions
+```
+
+#### Index.cshtml (or _Layout.cshtml)
+
+The view is using an extension method to leverage the `DnxFlashViewComponent`. By default, this will use `Default.cshtml`. You can also pass a view-name.
+
+```csharp
+@Component.DnxFlash()
+```
+
+#### Index.cshtml (Alternative)
+
+```csharp
+@Component.Invoke("DnxFlash")
+```
