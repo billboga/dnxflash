@@ -20,11 +20,10 @@ namespace DnxFlash.AspNet.Razor.ViewHelpers
         public IViewComponentResult Invoke(string view)
         {
             var messages = new List<Message>();
-            Message message = null;
 
-            while ((message = messenger.Fetch()) != null)
+            while (messenger.Count() > 0)
             {
-                messages.Add(message);
+                messages.Add(messenger.Fetch());
             }
 
             return View(view, messages);

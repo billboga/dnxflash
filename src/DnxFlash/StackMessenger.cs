@@ -32,6 +32,14 @@ namespace DnxFlash
             return this;
         }
 
+        public int Count()
+        {
+            var providerMessages = messageProvider.Get() as Stack<Message>
+                ?? new Stack<Message>();
+
+            return providerMessages.Count();
+        }
+
         public Message Fetch()
         {
             var providerMessages = messageProvider.Get() as Stack<Message>

@@ -31,6 +31,23 @@ namespace DnxFlash.Test
             Assert.Equal("second", expectedBottom.Text);
         }
 
+        public class Count : StackMessengerTest
+        {
+            [Theory,
+                InlineData(0),
+                InlineData(1),
+                InlineData(2)]
+            public void Should_return_message_count(int numberOfMessagesToAdd)
+            {
+                for (var i = 0; i < numberOfMessagesToAdd; i++)
+                {
+                    sut.Add(new Message("message"));
+                }
+
+                Assert.Equal(numberOfMessagesToAdd, sut.Count());
+            }
+        }
+
         public class Fetch : StackMessengerTest
         {
             [Fact]
