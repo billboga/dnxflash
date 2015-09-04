@@ -18,7 +18,8 @@ namespace DnxFlash.Test
         {
             sut
                 .Add(new Message("first"))
-                .Add(new Message("second"));
+                .Add(new Message("second"))
+                .Add(new Message("third"));
 
             var expectedTop = sut.Fetch();
             var expectedBottom = sut.Fetch();

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace DnxFlash
@@ -20,10 +19,10 @@ namespace DnxFlash
 
         public IMessenger Add(Message message)
         {
-            message.MessengerOrderId = DateTimeOffset.UtcNow.UtcTicks;
-
             var providerMessages = messageProvider.Get() as Queue<Message>
                 ?? new Queue<Message>();
+
+            message.MessengerOrderId = providerMessages.Count();
 
             var messages = SetMessageOrder(providerMessages);
 

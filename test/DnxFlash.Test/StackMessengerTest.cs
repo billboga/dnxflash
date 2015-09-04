@@ -18,7 +18,8 @@ namespace DnxFlash.Test
         {
             sut
                 .Add(new Message("first"))
-                .Add(new Message("second"));
+                .Add(new Message("second"))
+                .Add(new Message("third"));
 
             var expectedTop = sut.Fetch();
             var expectedBottom = sut.Fetch();
@@ -26,8 +27,8 @@ namespace DnxFlash.Test
             Assert.NotNull(expectedTop);
             Assert.NotNull(expectedBottom);
 
-            Assert.Equal("second", expectedTop.Text);
-            Assert.Equal("first", expectedBottom.Text);
+            Assert.Equal("third", expectedTop.Text);
+            Assert.Equal("second", expectedBottom.Text);
         }
 
         public class Fetch : StackMessengerTest
