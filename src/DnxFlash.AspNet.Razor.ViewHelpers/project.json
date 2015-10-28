@@ -1,5 +1,5 @@
 ﻿{
-    "version": "0.2.0-*",
+    "version": "0.3.0-*",
     "description": "Leverages DNXFlash and contains useful view helpers for Razor.",
     "authors": [ "Bill Boga" ],
     "tags": [ "dnx aspnet flash razor" ],
@@ -7,7 +7,7 @@
     "licenseUrl": "https://raw.githubusercontent.com/billboga/dnxflash/master/LICENSE",
 
     "dependencies": {
-        "DnxFlash": "0.2.0-*",
+        "DnxFlash": "0.3.0-*",
         "Microsoft.AspNet.Mvc": "6.0.0-beta8",
         "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-beta8"
     },
