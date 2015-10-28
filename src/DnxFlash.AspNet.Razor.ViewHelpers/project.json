@@ -8,8 +8,8 @@
 
     "dependencies": {
         "DnxFlash": "0.2.0-*",
-        "Microsoft.AspNet.Mvc": "6.0.0-beta7",
-        "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-beta7"
+        "Microsoft.AspNet.Mvc": "6.0.0-beta8",
+        "Microsoft.AspNet.Mvc.ViewFeatures": "6.0.0-beta8"
     },
 
     "frameworks": {

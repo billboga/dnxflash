@@ -8,7 +8,7 @@
 
     "dependencies": {
         "DnxFlash": "0.2.0-*",
-        "Microsoft.AspNet.Http.Features": "1.0.0-beta7",
+        "Microsoft.AspNet.Http.Features": "1.0.0-beta8",
         "Newtonsoft.Json": "7.0.1"
     },
 

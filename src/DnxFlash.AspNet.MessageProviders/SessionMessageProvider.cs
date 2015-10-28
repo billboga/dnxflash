@@ -30,7 +30,7 @@ namespace DnxFlash.AspNet.MessageProviders
                 {
                     messages =
                         JsonConvert.DeserializeObject(
-                            Encoding.UTF8.GetString(value),
+                            Encoding.UTF8.GetString(value, 0, value.Length),
                             jsonSerializerSettings);
                 }
             }
