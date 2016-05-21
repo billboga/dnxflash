@@ -1,3 +1,5 @@
+# DEPRECATED. Use https://github.com/billboga/motleyflash for anything beyond .NET Core RC1.
+
 # DNXFlash
 
 *compatible with dnx rc1-update1*
